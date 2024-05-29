@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl1n687k5wh5f"]
+
+[ext_resource type="Script" path="res://Levels/Scripts/ObstacleSpawner.gd" id="1_ljjqh"]
+
+[node name="ObstacleSpawner" type="Node2D"]
+script = ExtResource("1_ljjqh")

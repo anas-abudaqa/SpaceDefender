@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmuaq7ix6ni64"]
+
+[ext_resource type="Script" path="res://PowerUps/Scripts/thruster.gd" id="1_3ywdn"]
+[ext_resource type="Texture2D" uid="uid://bdy13hg2g273r" path="res://0-Art/Thrusters.png" id="1_ipof0"]
+[ext_resource type="Texture2D" uid="uid://bkgfapyp8lca" path="res://0-Art/Kenney-Space-Shooter/PNG/Effects/fire10.png" id="3_174gp"]
+[ext_resource type="Texture2D" uid="uid://drs2rnnojsmdh" path="res://0-Art/Kenney-Space-Shooter/PNG/Effects/fire09.png" id="4_iu0w7"]
+[ext_resource type="Texture2D" uid="uid://cofqe2hk0mo6n" path="res://0-Art/Kenney-Space-Shooter/PNG/Effects/fire08.png" id="5_m8q3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcdi4"]
+
+[sub_resource type="Animation" id="Animation_5ekfv"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_gmbai"]
+resource_name = "Boost"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jet2:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_174gp"), ExtResource("4_iu0w7"), ExtResource("5_m8q3a"), ExtResource("4_iu0w7"), ExtResource("3_174gp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jet1:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_174gp"), ExtResource("4_iu0w7"), ExtResource("5_m8q3a"), ExtResource("4_iu0w7"), ExtResource("3_174gp")]
+}
+
+[sub_resource type="Animation" id="Animation_s2jku"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jet2:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_174gp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jet1:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_174gp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6eb63"]
+_data = {
+"Boost": SubResource("Animation_gmbai"),
+"Idle": SubResource("Animation_5ekfv"),
+"RESET": SubResource("Animation_s2jku")
+}
+
+[node name="Thruster" type="CharacterBody2D"]
+scale = Vector2(0.6, 0.6)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_3ywdn")
+
+[node name="Thrusters" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_ipof0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_pcdi4")
+
+[node name="Jet1" type="Sprite2D" parent="."]
+position = Vector2(-66.6667, 25)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_174gp")
+
+[node name="Jet2" type="Sprite2D" parent="."]
+position = Vector2(-66.6667, -25)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_174gp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6eb63")
+}
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BoostTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]

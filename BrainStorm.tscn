@@ -1,0 +1,145 @@
+[gd_scene load_steps=28 format=3 uid="uid://bhtevye4rdlqf"]
+
+[ext_resource type="Texture2D" uid="uid://djsmd8s5wa0au" path="res://0-Art/Kenney-Space-Shooter/PNG/playerShip1_blue.png" id="1_s266f"]
+[ext_resource type="Texture2D" uid="uid://cfykyd7bl2yv0" path="res://0-Art/Kenney-Space-Shooter/PNG/playerShip1_red.png" id="2_ynhsq"]
+[ext_resource type="Texture2D" uid="uid://baw1pc6rlqdof" path="res://0-Art/Kenney-Space-Shooter/PNG/playerShip2_blue.png" id="3_k332k"]
+[ext_resource type="Texture2D" uid="uid://co7bqnt4kk85d" path="res://0-Art/Kenney-Space-Shooter/PNG/playerShip3_blue.png" id="4_pld0x"]
+[ext_resource type="Texture2D" uid="uid://bp8ap5lx2go6s" path="res://0-Art/Kenney-Space-Shooter/PNG/playerShip2_red.png" id="5_2b70h"]
+[ext_resource type="Texture2D" uid="uid://dc2rlypd2gvym" path="res://0-Art/Kenney-Space-Shooter/PNG/playerShip3_red.png" id="6_meomx"]
+[ext_resource type="Texture2D" uid="uid://du42g3tg2glrp" path="res://0-Art/Kenney-Space-Shooter/PNG/Enemies/enemyBlack1.png" id="7_aq0h3"]
+[ext_resource type="Texture2D" uid="uid://cf87wipty3yx4" path="res://0-Art/Kenney-Space-Shooter/PNG/Enemies/enemyBlack2.png" id="8_7trrx"]
+[ext_resource type="Texture2D" uid="uid://cwtyr8e54qa4d" path="res://0-Art/Kenney-Space-Shooter/PNG/Enemies/enemyBlack3.png" id="9_10udq"]
+[ext_resource type="Texture2D" uid="uid://dpcqnr5prqahg" path="res://0-Art/Kenney-Space-Shooter/PNG/Enemies/enemyBlack4.png" id="10_wgt6p"]
+[ext_resource type="Texture2D" uid="uid://ditl154asbf3v" path="res://0-Art/Kenney-Space-Shooter/PNG/Enemies/enemyBlack5.png" id="11_irpg6"]
+[ext_resource type="Texture2D" uid="uid://5b0jlyyum4vv" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_001.png" id="12_d8l1u"]
+[ext_resource type="Texture2D" uid="uid://duutykimt2vxh" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_002.png" id="13_2f5gb"]
+[ext_resource type="Texture2D" uid="uid://kwl75i3ilpqw" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_003.png" id="14_obx6n"]
+[ext_resource type="Texture2D" uid="uid://cgwehpljmx5di" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_004.png" id="15_l64kt"]
+[ext_resource type="Texture2D" uid="uid://bmma2flokx8cc" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_005.png" id="16_tbood"]
+[ext_resource type="Texture2D" uid="uid://318225qawb75" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_006.png" id="17_vamsp"]
+[ext_resource type="Texture2D" uid="uid://djbe6fta4fmsd" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_007.png" id="18_ufjjd"]
+[ext_resource type="Texture2D" uid="uid://clw5dpthr7km1" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_008.png" id="19_2xljj"]
+[ext_resource type="Texture2D" uid="uid://17346figc5kb" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_009.png" id="20_jua8p"]
+[ext_resource type="Texture2D" uid="uid://cmdy0xxn78eed" path="res://0-Art/Kenney-Space-Shooter/PNG/Lasers/laserRed01.png" id="21_6xpgc"]
+[ext_resource type="Texture2D" uid="uid://wd20qg0l4clv" path="res://0-Art/Kenney-Space-Shooter/PNG/Lasers/laserRed02.png" id="22_yhhhx"]
+[ext_resource type="Texture2D" uid="uid://sq0p08bqs7vh" path="res://0-Art/Kenney-Space-Shooter/PNG/Lasers/laserRed03.png" id="23_6hgj5"]
+[ext_resource type="Texture2D" uid="uid://bmg6w74fgbt5m" path="res://0-Art/Kenney-Space-Shooter/PNG/Lasers/laserRed04.png" id="24_friv3"]
+[ext_resource type="Texture2D" uid="uid://cpaovrmkpr3wr" path="res://0-Art/Kenney-Space-Shooter/PNG/Lasers/laserRed05.png" id="25_76hhl"]
+[ext_resource type="Texture2D" uid="uid://cp6fugl1spg0i" path="res://0-Art/Kenney-Space-Shooter/PNG/Lasers/laserRed06.png" id="26_7uwpl"]
+[ext_resource type="Texture2D" uid="uid://clq3nt3lckl7a" path="res://0-Art/Kenney-Space-Shooter/PNG/Lasers/laserRed07.png" id="27_fvxeg"]
+
+[node name="PlayerShip1Blue" type="Sprite2D"]
+position = Vector2(387, 505)
+texture = ExtResource("1_s266f")
+
+[node name="PlayerShip1Red" type="Sprite2D" parent="."]
+position = Vector2(493, 262)
+texture = ExtResource("2_ynhsq")
+
+[node name="PlayerShip2Blue" type="Sprite2D" parent="."]
+position = Vector2(601, -15)
+texture = ExtResource("3_k332k")
+
+[node name="PlayerShip3Blue" type="Sprite2D" parent="."]
+position = Vector2(613, -129)
+texture = ExtResource("4_pld0x")
+
+[node name="PlayerShip2Red" type="Sprite2D" parent="."]
+position = Vector2(-261, 91)
+texture = ExtResource("5_2b70h")
+
+[node name="PlayerShip3Red" type="Sprite2D" parent="."]
+position = Vector2(396, 117)
+rotation = 1.5708
+texture = ExtResource("6_meomx")
+
+[node name="EnemyBlack1" type="Sprite2D" parent="."]
+position = Vector2(318, -280)
+texture = ExtResource("7_aq0h3")
+
+[node name="EnemyBlack2" type="Sprite2D" parent="."]
+position = Vector2(72, -253)
+texture = ExtResource("8_7trrx")
+
+[node name="EnemyBlack3" type="Sprite2D" parent="."]
+position = Vector2(226, -268)
+texture = ExtResource("9_10udq")
+
+[node name="EnemyBlack4" type="Sprite2D" parent="."]
+position = Vector2(451, -265)
+texture = ExtResource("10_wgt6p")
+
+[node name="EnemyBlack5" type="Sprite2D" parent="."]
+position = Vector2(594, -252)
+texture = ExtResource("11_irpg6")
+
+[node name="SpaceShips001" type="Sprite2D" parent="."]
+position = Vector2(-3, 125)
+texture = ExtResource("12_d8l1u")
+
+[node name="SpaceShips002" type="Sprite2D" parent="."]
+position = Vector2(270, 262)
+texture = ExtResource("13_2f5gb")
+
+[node name="SpaceShips003" type="Sprite2D" parent="."]
+position = Vector2(762, 231)
+texture = ExtResource("14_obx6n")
+
+[node name="SpaceShips004" type="Sprite2D" parent="."]
+position = Vector2(150, 6)
+texture = ExtResource("15_l64kt")
+
+[node name="SpaceShips005" type="Sprite2D" parent="."]
+position = Vector2(358, 114)
+rotation = -1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("16_tbood")
+
+[node name="SpaceShips006" type="Sprite2D" parent="."]
+position = Vector2(641, 144)
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_vamsp")
+
+[node name="SpaceShips007" type="Sprite2D" parent="."]
+position = Vector2(20, 263)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_ufjjd")
+
+[node name="SpaceShips008" type="Sprite2D" parent="."]
+position = Vector2(-129, 125)
+texture = ExtResource("19_2xljj")
+
+[node name="SpaceShips009" type="Sprite2D" parent="."]
+position = Vector2(-95, 261)
+scale = Vector2(0.780702, 0.926829)
+texture = ExtResource("20_jua8p")
+
+[node name="LaserRed01" type="Sprite2D" parent="."]
+position = Vector2(-487, 96)
+texture = ExtResource("21_6xpgc")
+
+[node name="LaserRed02" type="Sprite2D" parent="."]
+position = Vector2(-700, 132)
+texture = ExtResource("22_yhhhx")
+
+[node name="LaserRed03" type="Sprite2D" parent="."]
+position = Vector2(-701, 80)
+texture = ExtResource("23_6hgj5")
+
+[node name="LaserRed04" type="Sprite2D" parent="."]
+position = Vector2(-625, 83)
+texture = ExtResource("24_friv3")
+
+[node name="LaserRed05" type="Sprite2D" parent="."]
+position = Vector2(-582, 198)
+texture = ExtResource("25_76hhl")
+
+[node name="LaserRed06" type="Sprite2D" parent="."]
+position = Vector2(-610, 144)
+texture = ExtResource("26_7uwpl")
+
+[node name="LaserRed07" type="Sprite2D" parent="."]
+position = Vector2(-521, 88)
+texture = ExtResource("27_fvxeg")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc6usnfkn5w71"]
+
+[ext_resource type="Texture2D" uid="uid://c6ky1ksv8tjun" path="res://0-Art/laserBlue14_end.png" id="1_tlohb"]
+[ext_resource type="Script" path="res://PowerUps/Scripts/laser_cannon_laser.gd" id="1_totn4"]
+[ext_resource type="Texture2D" uid="uid://c8em2gsc2kme" path="res://0-Art/laserBlue14_middle_edit.png" id="2_unrax"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gw312"]
+radius = 7.0
+height = 619.0
+
+[node name="LaserCannonLaser" type="Area2D"]
+z_index = -1
+rotation = 1.5708
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_totn4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_tlohb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.52588e-05, 282.5)
+shape = SubResource("CapsuleShape2D_gw312")
+
+[node name="LaserBlue14MiddleEdit2" type="Sprite2D" parent="."]
+position = Vector2(1.35942e-05, 311)
+scale = Vector2(1, 10)
+texture = ExtResource("2_unrax")
+
+[node name="ExpiryTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ExpiryTimer" to="." method="_on_expiry_timer_timeout"]

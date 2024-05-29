@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dayxjl8oo67l6"]
+
+[ext_resource type="Script" path="res://Levels/Level1/Scripts/SpikyRock.gd" id="1_tejkd"]
+[ext_resource type="Texture2D" uid="uid://cp3qe8b7136l0" path="res://0-Art/RockSpikeLeft.png" id="1_tpt1w"]
+[ext_resource type="Script" path="res://Levels/Level1/Scripts/SpikyRockHitbox.gd" id="2_7faaf"]
+
+[sub_resource type="Animation" id="Animation_uk553"]
+resource_name = "Float"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dmavk"]
+_data = {
+"Float": SubResource("Animation_uk553")
+}
+
+[node name="SpikyRockLeft" type="StaticBody2D"]
+scale = Vector2(3, 3)
+collision_mask = 10
+constant_linear_velocity = Vector2(0, 50)
+script = ExtResource("1_tejkd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tpt1w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-18.6667, -14.3333, -2.66667, -21, -2.33333, -32.6667, 22.6667, -31.6667, 23.6667, 34, -0.333333, 33, -1.66667, 26.6667, -21, 23.6667, -21, 21.3333, -1.66667, 17.3333, -2, -12.6667, -18, -10.3333)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_7faaf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-22.6667, -13.3333, -4, -21.3333, -4, -34.3333, 24, -33, 24.3333, 36.6667, -1, 37, -4, 28.3333, -23.6667, 24.3333, -23.3333, 20, -3.66667, 17.6667, -3.66667, -11, -22.3333, -8.66667)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dmavk")
+}
+
+[node name="ExpiryTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
+[connection signal="timeout" from="ExpiryTimer" to="." method="_on_expiry_timer_timeout"]

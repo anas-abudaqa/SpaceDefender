@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bavdtfl38fgg"]
+
+[ext_resource type="Script" path="res://Characters/Enemy1/Scripts/Enemy1.gd" id="1_86c8u"]
+[ext_resource type="Texture2D" uid="uid://mseutpa44125" path="res://0-Art/Enemy1.png" id="1_pnfmu"]
+
+[node name="Enemy1" type="CharacterBody2D" groups=["Damageable"]]
+texture_filter = 1
+rotation = 1.5708
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_86c8u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pnfmu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(38.0001, 17.9999, 38, -4.00014, 37.9999, -27.0001, 16.9999, -41.0001, -16.0001, -40.9999, -37.0001, -27.9999, -36.9999, 19.0001, -15.9999, 32.0001, -8.99985, 41, 10.0001, 41, 16.0001, 31.9999)
+
+[node name="ExpiryTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="ExpiryTimer" to="." method="_on_expiry_timer_timeout"]

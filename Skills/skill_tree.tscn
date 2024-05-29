@@ -1,0 +1,128 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnpr7hwnvudfk"]
+
+[ext_resource type="PackedScene" uid="uid://dfh1ekp3hlu4v" path="res://Skills/skill_button.tscn" id="1_h0k0g"]
+
+[node name="SkillTree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 50.0
+offset_right = -260.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DMG" parent="." instance=ExtResource("1_h0k0g")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.055
+anchor_right = 0.051
+anchor_bottom = 0.055
+offset_left = 492.3
+offset_top = 388.5
+offset_right = 561.3
+offset_bottom = 457.5
+max_level = 3
+skill_name = "DMG+"
+
+[node name="ChrgShot" parent="DMG" instance=ExtResource("1_h0k0g")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.055
+anchor_right = 0.051
+anchor_bottom = 0.055
+offset_left = -1.51903
+offset_top = -138.795
+offset_right = 67.481
+offset_bottom = -69.795
+disabled = true
+max_level = 1
+skill_name = "ChrgShot"
+
+[node name="Absorber" parent="DMG/ChrgShot" instance=ExtResource("1_h0k0g")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.055
+anchor_right = 0.051
+anchor_bottom = 0.055
+offset_left = -1.51903
+offset_top = -138.795
+offset_right = 67.481
+offset_bottom = -69.795
+disabled = true
+max_level = 1
+skill_name = "Absorber"
+
+[node name="HP" parent="." instance=ExtResource("1_h0k0g")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.055
+anchor_right = 0.051
+anchor_bottom = 0.055
+offset_left = 176.3
+offset_top = 371.5
+offset_right = 245.3
+offset_bottom = 440.5
+max_level = 3
+skill_name = "HP+"
+
+[node name="LifeIncrease" parent="HP" instance=ExtResource("1_h0k0g")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.055
+anchor_right = 0.051
+anchor_bottom = 0.055
+offset_left = -3.519
+offset_top = -143.795
+offset_right = 65.481
+offset_bottom = -74.795
+disabled = true
+max_level = 2
+skill_name = "Life+"
+
+[node name="AutoRepair" parent="HP/LifeIncrease" instance=ExtResource("1_h0k0g")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.055
+anchor_right = 0.051
+anchor_bottom = 0.055
+offset_left = 120.481
+offset_top = -111.795
+offset_right = 189.481
+offset_bottom = -42.795
+disabled = true
+max_level = 1
+skill_name = "AutoRepair"
+
+[node name="RegShield" parent="HP/LifeIncrease" instance=ExtResource("1_h0k0g")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.055
+anchor_right = 0.051
+anchor_bottom = 0.055
+offset_left = -133.519
+offset_top = -112.795
+offset_right = -64.519
+offset_bottom = -43.795
+disabled = true
+max_level = 1
+skill_name = "RegShield"

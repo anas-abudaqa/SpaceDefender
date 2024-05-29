@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqe8if6e41xor"]
+
+[ext_resource type="Script" path="res://PowerUps/Scripts/rocket_shooter.gd" id="1_tadn3"]
+[ext_resource type="Texture2D" uid="uid://kwl75i3ilpqw" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_003.png" id="2_po855"]
+[ext_resource type="Texture2D" uid="uid://dgm4hpscoqwd6" path="res://0-Art/Kenney-Space-Shooter/PNG/Effects/fire00.png" id="3_c356h"]
+[ext_resource type="Texture2D" uid="uid://ca1vts6w00pbg" path="res://0-Art/Kenney-Space-Shooter/PNG/Effects/fire19.png" id="4_uu1w8"]
+[ext_resource type="Texture2D" uid="uid://b1wqp0ken72i0" path="res://0-Art/Kenney-Space-Shooter/PNG/Effects/fire18.png" id="5_gkjx0"]
+[ext_resource type="Texture2D" uid="uid://bkgfapyp8lca" path="res://0-Art/Kenney-Space-Shooter/PNG/Effects/fire10.png" id="6_b2vt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1m25"]
+size = Vector2(83.8335, 90)
+
+[sub_resource type="Animation" id="Animation_72mui"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jet:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_c356h"), ExtResource("4_uu1w8"), ExtResource("5_gkjx0"), ExtResource("4_uu1w8"), ExtResource("6_b2vt4")]
+}
+
+[sub_resource type="Animation" id="Animation_mdbuk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jet:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_c356h")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ajbf1"]
+_data = {
+"Idle": SubResource("Animation_72mui"),
+"RESET": SubResource("Animation_mdbuk")
+}
+
+[node name="RocketShooter" type="CharacterBody2D"]
+rotation = -1.5708
+scale = Vector2(0.4, 0.4)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_tadn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_po855")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+texture_filter = 1
+shape = SubResource("RectangleShape2D_k1m25")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ajbf1")
+}
+autoplay = "Idle"
+
+[node name="Jet" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0.000217438, -60)
+texture = ExtResource("3_c356h")
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

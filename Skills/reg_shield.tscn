@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj2if3j5mrjor"]
+
+[ext_resource type="Script" path="res://Skills/Scripts/RegShield.gd" id="1_n1ji3"]
+[ext_resource type="Texture2D" uid="uid://bh0dwvp46qm5t" path="res://0-Art/Kenney-Space-Shooter/PNG/Effects/shield3.png" id="2_1wr8p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fv136"]
+radius = 73.2462
+
+[node name="RegShield" type="Area2D" groups=["Shield"]]
+collision_layer = 0
+collision_mask = 9
+script = ExtResource("1_n1ji3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1wr8p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fv136")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

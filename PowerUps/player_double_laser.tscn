@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgpmhjxbaupxa"]
+
+[ext_resource type="Texture2D" uid="uid://cmdy0xxn78eed" path="res://0-Art/Kenney-Space-Shooter/PNG/Lasers/laserRed01.png" id="1_6iw71"]
+[ext_resource type="Script" path="res://PowerUps/Scripts/player_double_laser.gd" id="1_uyd0d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3yvko"]
+radius = 4.0
+height = 54.0
+
+[node name="PlayerDoubleLaser" type="Area2D"]
+rotation = 1.5708
+script = ExtResource("1_uyd0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6iw71")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3yvko")
+
+[node name="ExpiryTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="ExpiryTimer" to="." method="_on_expiry_timer_timeout"]

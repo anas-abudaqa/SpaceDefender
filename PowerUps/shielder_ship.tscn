@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://gxd4l4s1xvca"]
+
+[ext_resource type="Script" path="res://PowerUps/Scripts/ShielderShip.gd" id="1_fuhc3"]
+[ext_resource type="Texture2D" uid="uid://duutykimt2vxh" path="res://0-Art/Kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_002.png" id="2_bk44h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8snsh"]
+radius = 56.7646
+
+[node name="ShielderShip" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_fuhc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bk44h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8snsh")

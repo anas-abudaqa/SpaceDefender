@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfpyncrrybdob"]
+
+[ext_resource type="Script" path="res://Levels/Scripts/ParallaxBackgroundTemplate.gd" id="1_o31bq"]
+[ext_resource type="Texture2D" uid="uid://c2jokf4tvlbeo" path="res://0-Art/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_8.png" id="2_qm4y2"]
+[ext_resource type="Texture2D" uid="uid://cjyhsufu1osqu" path="res://0-Art/space_background_pack/layers/parallax-space-ring-planet.png" id="3_hdm6t"]
+[ext_resource type="Texture2D" uid="uid://d2kq223cyni7b" path="res://0-Art/space_background_pack/layers/parallax-space-far-planets.png" id="4_7xave"]
+[ext_resource type="Texture2D" uid="uid://wik6gdt8sbdv" path="res://0-Art/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_6.png" id="5_lthav"]
+
+[node name="ScrollingParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_o31bq")
+
+[node name="Planet" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Planet"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_qm4y2")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 240)
+
+[node name="RingPlanet" type="ParallaxLayer" parent="."]
+z_index = 2
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1270, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="RingPlanet"]
+z_index = 1
+position = Vector2(1064, 320)
+rotation = 0.785398
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_hdm6t")
+
+[node name="FarPlanets" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1270, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="FarPlanets"]
+position = Vector2(2, 85)
+scale = Vector2(2, 2)
+texture = ExtResource("4_7xave")
+centered = false
+
+[node name="FarPlanets2" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1270, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="FarPlanets2"]
+position = Vector2(0, 85)
+scale = Vector2(2, 2)
+texture = ExtResource("5_lthav")
+centered = false

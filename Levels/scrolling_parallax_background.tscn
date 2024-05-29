@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://tapbul4yueiy"]
+
+[ext_resource type="Texture2D" uid="uid://df7ts3f05487" path="res://0-Art/Level1-Super Mountain Dusk Files/Layers/sky.png" id="2_ein4o"]
+[ext_resource type="Texture2D" uid="uid://ifk6p47n2qxy" path="res://0-Art/Level1-Super Mountain Dusk Files/Layers/mountains.png" id="3_soxfj"]
+[ext_resource type="Texture2D" uid="uid://bktjxov1qxb87" path="res://0-Art/Level1-Super Mountain Dusk Files/Layers/far-mountains.png" id="4_l0147"]
+
+[node name="ScrollingParallaxBackground" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_ein4o")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 240)
+
+[node name="FarMountains" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_mirroring = Vector2(1270, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="FarMountains"]
+position = Vector2(2, 6)
+scale = Vector2(4.0375, 3.34167)
+texture = ExtResource("4_l0147")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="FarMountains"]
+position = Vector2(648, 6)
+scale = Vector2(3.94375, 3.35)
+texture = ExtResource("4_l0147")
+centered = false
+
+[node name="NearMountains" type="ParallaxLayer" parent="."]
+z_index = 2
+motion_mirroring = Vector2(1270, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="NearMountains"]
+z_index = 1
+position = Vector2(640, 592)
+scale = Vector2(3.9875, 3.34167)
+texture = ExtResource("3_soxfj")
